@@ -5,16 +5,16 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		ArrayList<Pregunta> preguntas = new ArrayList<>();
-		ArrayList<Integer> preguntasSeleccionadas = new ArrayList<Integer>();
+		Integer[][] preguntasSeleccionadas = new Integer[15][2];
 		HashMap<Integer, Integer> premios = new HashMap<>();
 		
 		añadirPreguntasPremios(preguntas, premios);
 		
-		seleccionarPreguntas(preguntas, preguntasSeleccionadas);
+		seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
 		
 	}
 	
-	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, ArrayList<Integer> preguntasSeleccionadas) {
+	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas, HashMap<Integer, Integer> premios) {
 		ArrayList<Integer> tipoPreguntas = new ArrayList<>();
 		int contador = 0, numero;
 		
@@ -29,7 +29,7 @@ public class MainApp {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 			
 			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas.add(numero);
+				preguntasSeleccionadas[contador][premios.get(contador)] = numero;
 				contador++;
 			}
 		}while(contador != 5);
@@ -46,7 +46,7 @@ public class MainApp {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 			
 			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas.add(numero);
+				preguntasSeleccionadas[contador][premios.get(contador)] = numero;
 				contador++;
 			}
 		}while(contador != 10);
@@ -63,7 +63,7 @@ public class MainApp {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 			
 			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas.add(numero);
+				preguntasSeleccionadas[contador][premios.get(contador)] = numero;
 				contador++;
 			}
 		}while(contador != 15);
