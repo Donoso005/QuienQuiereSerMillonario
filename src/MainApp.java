@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainApp {
 
@@ -10,17 +9,11 @@ public class MainApp {
 		añadirPreguntasGenerales(preguntas);
 		seleccionarPreguntas(preguntas, preguntasSeleccionadas);
 		
-		System.out.println(preguntasSeleccionadas.size());
-		for(int j = 0; j > preguntasSeleccionadas.size(); j++) {
-			System.out.println(preguntasSeleccionadas.get(j));
-		}
-		
 	}
 	
 	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, ArrayList<Integer> preguntasSeleccionadas) {
 		ArrayList<Integer> tipoPreguntas = new ArrayList<>();
 		int contador = 0, numero;
-		
 		
 		// Obtener Preguntas Faciles
 		for(int i = 0; i < preguntas.size(); i++) {
