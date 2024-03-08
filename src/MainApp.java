@@ -29,7 +29,8 @@ public class MainApp {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 			
 			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas[contador][premios.get(contador)] = numero;
+				preguntasSeleccionadas[contador][0] = numero;
+				preguntasSeleccionadas[contador][1] = premios.get(contador);
 				contador++;
 			}
 		}while(contador != 5);
@@ -46,7 +47,8 @@ public class MainApp {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 			
 			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas[contador][premios.get(contador)] = numero;
+				preguntasSeleccionadas[contador][0] = numero;
+				preguntasSeleccionadas[contador][1] = premios.get(contador);
 				contador++;
 			}
 		}while(contador != 10);
@@ -63,7 +65,8 @@ public class MainApp {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 			
 			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas[contador][premios.get(contador)] = numero;
+				preguntasSeleccionadas[contador][0] = numero;
+				preguntasSeleccionadas[contador][1] = premios.get(contador);
 				contador++;
 			}
 		}while(contador != 15);
