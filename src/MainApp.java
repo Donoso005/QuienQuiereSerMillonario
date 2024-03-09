@@ -10,7 +10,8 @@ public class MainApp {
 		ArrayList<Integer> premios = new ArrayList<>();
 		ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 		
-		int respuesta;
+		int opcion;
+		char respuesta;
 		boolean acierto=true, continuar=true;
 		
 		
@@ -23,13 +24,13 @@ public class MainApp {
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
 				//llamarComodines(preguntasSeleccionadas, i);
 				System.out.println("¿Cuál es su respuesta:");
-				respuesta = sc.nextInt();
-				if(respuesta == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
+				opcion = sc.nextInt();
+				if(opcion == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
 					System.out.println("Enhorabuena, has acertado");
 					do {
 						System.out.println("¿Que quieres hacer? \n 1. Seguir jugando \n 2. Plantarse");
-						respuesta = sc.nextInt();
-						switch(respuesta) {
+						opcion = sc.nextInt();
+						switch(opcion) {
 						case 1:
 							System.out.println("Vamos a por la siguiente pregunta");
 							break;
@@ -41,7 +42,7 @@ public class MainApp {
 							System.out.println("Opción no válida");
 							break;
 						}
-					}while(respuesta<1 || respuesta>2);
+					}while(opcion<1 || opcion>2);
 				}else {
 					System.out.println("Lo siento, has fallado");
 					if(comodines.size()>0) {
