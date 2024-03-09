@@ -10,8 +10,8 @@ public class MainApp {
 		ArrayList<Integer> premios = new ArrayList<>();
 		ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 		
-		int opcion;
-		char respuesta;
+		int opcion = 0;
+		String respuesta;
 		boolean acierto=true, continuar=true;
 		
 		
@@ -21,10 +21,34 @@ public class MainApp {
 		do {
 			for(int i=0;i<preguntasSeleccionadas.length;i++) {
 				System.out.println("Pregunta número " + (i+1) + ":");
+				
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
 				//llamarComodines(preguntasSeleccionadas, i);
-				System.out.println("¿Cuál es su respuesta:");
-				opcion = sc.nextInt();
+				
+				do {
+					System.out.println("¿Cuál es su respuesta:");
+					respuesta = sc.next();
+					
+					switch(respuesta) {
+						case "A":
+							opcion = 1;
+							break;
+						case "B":
+							opcion = 2;
+							break;
+						case "C":
+							opcion = 3;
+							break;
+						case "D":
+							opcion = 4;
+							break;
+						default:
+							System.out.println("[ERROR] Opción incorrecta.");
+							break;
+					}
+					
+				}while(!respuesta.equalsIgnoreCase("A") && !respuesta.equalsIgnoreCase("B") && !respuesta.equalsIgnoreCase("C") && !respuesta.equalsIgnoreCase("D"));
+				
 				if(opcion == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
 					System.out.println("Enhorabuena, has acertado");
 					do {
