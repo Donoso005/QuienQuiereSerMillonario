@@ -104,7 +104,7 @@ public class MainApp {
 		do {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 
-			preguntasSeleccionadas[contador][0] = numero;
+			preguntasSeleccionadas[contador][0] = tipoPreguntas.get(numero);
 			preguntasSeleccionadas[contador][1] = premios.get(contador);
 			contador++;
 			tipoPreguntas.remove(numero);
@@ -121,7 +121,7 @@ public class MainApp {
 		do {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 
-			preguntasSeleccionadas[contador][0] = numero;
+			preguntasSeleccionadas[contador][0] = tipoPreguntas.get(numero);
 			preguntasSeleccionadas[contador][1] = premios.get(contador);
 			contador++;
 			tipoPreguntas.remove(numero);
@@ -138,7 +138,7 @@ public class MainApp {
 		do {
 			numero = (int) (Math.random() * tipoPreguntas.size());
 
-			preguntasSeleccionadas[contador][0] = numero;
+			preguntasSeleccionadas[contador][0] = tipoPreguntas.get(numero);
 			preguntasSeleccionadas[contador][1] = premios.get(contador);
 			contador++;
 			tipoPreguntas.remove(numero);
