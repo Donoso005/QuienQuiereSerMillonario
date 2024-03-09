@@ -13,10 +13,10 @@ public class MainApp {
 		int respuesta;
 		boolean acierto=true, continuar=true;
 		
+		
 		añadirPreguntasPremios(preguntas, premios);
-		
 		seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
-		
+		menu(comodines, preguntasSeleccionadas);
 		do {
 			for(int i=0;i<preguntasSeleccionadas.length;i++) {
 				System.out.println("Pregunta número " + (i+1) + ":");
@@ -100,6 +100,39 @@ public class MainApp {
 		for (int i=0;i<preguntasSeleccionadas.length;i++) {
 			
 		}
+	}
+	
+	public static void menu(ArrayList<String> comodines, Integer[][] preguntasSeleccionadas) {
+		String nombre, comenzar;
+		Integer edad;
+		
+		System.out.print("Introduzca su nombre: ");
+		nombre = sc.next();
+		System.out.print("Introduzca su edad: ");
+		edad = sc.nextInt();
+		System.out.println("\n"
+				+ "███╗░░░███╗██╗██╗░░░░░██╗░░░░░░█████╗░███╗░░██╗░█████╗░██████╗░██╗░█████╗░\r\n"
+				+ "████╗░████║██║██║░░░░░██║░░░░░██╔══██╗████╗░██║██╔══██╗██╔══██╗██║██╔══██╗\r\n"
+				+ "██╔████╔██║██║██║░░░░░██║░░░░░██║░░██║██╔██╗██║███████║██████╔╝██║██║░░██║\r\n"
+				+ "██║╚██╔╝██║██║██║░░░░░██║░░░░░██║░░██║██║╚████║██╔══██║██╔══██╗██║██║░░██║\r\n"
+				+ "██║░╚═╝░██║██║███████╗███████╗╚█████╔╝██║░╚███║██║░░██║██║░░██║██║╚█████╔╝\r\n"
+				+ "╚═╝░░░░░╚═╝╚═╝╚══════╝╚══════╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░╚════╝░");
+		System.out.println("INFORMACIÓN DEL CONCURSANTE:\n Nombre: " + nombre + "\n Edad: " + edad + "\n Comodines: ");
+		for(int i = 0; i < comodines.size(); i++) {
+			System.out.println(" - " + comodines.get(i));
+		}
+		System.out.println(" Gran premio: " + preguntasSeleccionadas[14][1] + "€\n");
+		
+		do {
+			System.out.print("Desea comenzar el concurso? (SI/NO):");
+			comenzar = sc.next();
+			System.out.println("\n");
+			if(!comenzar.equalsIgnoreCase("SI") && !comenzar.equalsIgnoreCase("NO")) {
+				System.out.println("[ERROR] Opción incorrecta");
+			} else if(comenzar.equalsIgnoreCase("NO")) {
+				System.exit(0);
+			}
+		}while(!comenzar.equalsIgnoreCase("SI") && !comenzar.equalsIgnoreCase("NO"));
 	}
 	
 	public static void añadirPreguntasPremios(ArrayList<Pregunta> preguntas, ArrayList<Integer> premios) {
