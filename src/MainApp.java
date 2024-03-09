@@ -48,7 +48,7 @@ public class MainApp {
 			preguntasSeleccionadas[contador][1] = premios.get(contador);
 			contador++;
 			tipoPreguntas.remove(numero);
-		}while(contador != 5);
+		}while(contador != 10);
 		tipoPreguntas.clear();
 		
 		// Obtener Preguntas Dificiles
@@ -65,7 +65,7 @@ public class MainApp {
 			preguntasSeleccionadas[contador][1] = premios.get(contador);
 			contador++;
 			tipoPreguntas.remove(numero);
-		}while(contador != 5);
+		}while(contador != 15);
 		tipoPreguntas.clear();
 
 	}
