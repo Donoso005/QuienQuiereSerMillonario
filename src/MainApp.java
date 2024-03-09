@@ -6,7 +6,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		ArrayList<Pregunta> preguntas = new ArrayList<>();
 		Integer[][] preguntasSeleccionadas = new Integer[15][2];
-		HashMap<Integer, Integer> premios = new HashMap<>();
+		ArrayList<Integer> premios = new ArrayList<>();
 		
 		añadirPreguntasPremios(preguntas, premios);
 		
@@ -14,7 +14,7 @@ public class MainApp {
 		
 	}
 	
-	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas, HashMap<Integer, Integer> premios) {
+	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas, ArrayList<Integer> premios) {
 		ArrayList<Integer> tipoPreguntas = new ArrayList<>();
 		int contador = 0, numero;
 		
@@ -74,7 +74,7 @@ public class MainApp {
 
 	}
 	
-	public static void añadirPreguntasPremios(ArrayList<Pregunta> preguntas, HashMap<Integer, Integer> premios) {
+	public static void añadirPreguntasPremios(ArrayList<Pregunta> preguntas, ArrayList<Integer> premios) {
         preguntas.add(new Pregunta("¿Cuál es el río más largo del mundo?", new String[]{"Nilo", "Mississippi", "Yangtsé", "Amazonas"}, 3, "M"));
         preguntas.add(new Pregunta("¿Quién escribió 'Don Quijote de la Mancha'?", new String[]{"García Márquez", "Borges", "Shakespeare", "Cervantes"}, 4, "F"));
         preguntas.add(new Pregunta("¿Cuál es el elemento químico más abundante en la Tierra?", new String[]{"Hierro", "Hidrógeno", "Carbono", "Oxígeno"}, 4, "F"));
@@ -106,21 +106,21 @@ public class MainApp {
         preguntas.add(new Pregunta("¿En qué año terminó la Segunda Guerra Mundial?", new String[]{"1945", "1942", "1939", "1948"}, 1, "M"));
         preguntas.add(new Pregunta("¿Cuál es la capital de Argentina?", new String[]{"Montevideo", "Santiago", "Bogotá", "Buenos Aires"}, 4, "D"));
         
-        premios.put(1, 100);
-		premios.put(2, 250);
-		premios.put(3, 500);
-		premios.put(4, 750);
-		premios.put(5, 1500);
-		premios.put(6, 2500);
-		premios.put(7, 5000);
-		premios.put(8, 10000);
-		premios.put(9, 16000);
-		premios.put(10, 20000);
-		premios.put(11, 30000);
-		premios.put(12, 50000);
-		premios.put(13, 100000);
-		premios.put(14, 300000);
-		premios.put(15, 1000000);
+        premios.add(100);
+		premios.add(250);
+		premios.add(500);
+		premios.add(750);
+		premios.add(1500);
+		premios.add(2500);
+		premios.add(5000);
+		premios.add(10000);
+		premios.add(16000);
+		premios.add(20000);
+		premios.add(30000);
+		premios.add(50000);
+		premios.add(100000);
+		premios.add(300000);
+		premios.add(1000000);
 	}
 
 }
