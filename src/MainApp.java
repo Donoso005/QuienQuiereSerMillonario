@@ -68,7 +68,6 @@ public class MainApp {
 			tipoPreguntas.remove(numero);
 		}while(contador != 5);
 		tipoPreguntas.clear();
-		tipoPreguntas.clear();
 
 	}
 	
