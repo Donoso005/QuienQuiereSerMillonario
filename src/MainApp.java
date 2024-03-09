@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 public class MainApp {
 	static Scanner sc = new Scanner(System.in);
@@ -7,6 +8,8 @@ public class MainApp {
 		ArrayList<Pregunta> preguntas = new ArrayList<>();
 		Integer[][] preguntasSeleccionadas = new Integer[15][2];
 		ArrayList<Integer> premios = new ArrayList<>();
+		ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
+		
 		int respuesta;
 		boolean acierto=true, continuar=true;
 		
