@@ -18,6 +18,9 @@ public class MainApp {
 		añadirPreguntasPremios(preguntas, premios);
 		seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
 		menu(comodines, preguntasSeleccionadas);
+		for(int i=0;i<preguntasSeleccionadas.length;i++) {
+			System.out.println(preguntas.get(preguntasSeleccionadas[i][0]).getPregunta());
+		}
 		do {
 			for(int i=0;i<preguntasSeleccionadas.length;i++) {
 				System.out.println("Pregunta número " + (i+1) + ":");
