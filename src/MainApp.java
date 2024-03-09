@@ -27,12 +27,11 @@ public class MainApp {
 		
 		do {
 			numero = (int) (Math.random() * tipoPreguntas.size());
-			
-			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas[contador][0] = numero;
-				preguntasSeleccionadas[contador][1] = premios.get(contador);
-				contador++;
-			}
+
+			preguntasSeleccionadas[contador][0] = numero;
+			preguntasSeleccionadas[contador][1] = premios.get(contador);
+			contador++;
+			tipoPreguntas.remove(numero);
 		}while(contador != 5);
 		tipoPreguntas.clear();
 
@@ -45,13 +44,12 @@ public class MainApp {
 		
 		do {
 			numero = (int) (Math.random() * tipoPreguntas.size());
-			
-			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas[contador][0] = numero;
-				preguntasSeleccionadas[contador][1] = premios.get(contador);
-				contador++;
-			}
-		}while(contador != 10);
+
+			preguntasSeleccionadas[contador][0] = numero;
+			preguntasSeleccionadas[contador][1] = premios.get(contador);
+			contador++;
+			tipoPreguntas.remove(numero);
+		}while(contador != 5);
 		tipoPreguntas.clear();
 		
 		// Obtener Preguntas Dificiles
@@ -63,13 +61,13 @@ public class MainApp {
 		
 		do {
 			numero = (int) (Math.random() * tipoPreguntas.size());
-			
-			if(!tipoPreguntas.contains(numero)) {
-				preguntasSeleccionadas[contador][0] = numero;
-				preguntasSeleccionadas[contador][1] = premios.get(contador);
-				contador++;
-			}
-		}while(contador != 15);
+
+			preguntasSeleccionadas[contador][0] = numero;
+			preguntasSeleccionadas[contador][1] = premios.get(contador);
+			contador++;
+			tipoPreguntas.remove(numero);
+		}while(contador != 5);
+		tipoPreguntas.clear();
 		tipoPreguntas.clear();
 
 	}
