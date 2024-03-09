@@ -21,14 +21,44 @@ public class MainApp {
 			for(int i=0;i<preguntasSeleccionadas.length;i++) {
 				System.out.println("Pregunta número " + (i+1) + ":");
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
-				llamarComodines(preguntasSeleccionadas, i);
+				//llamarComodines(preguntasSeleccionadas, i);
 				System.out.println("¿Cuál es su respuesta:");
 				respuesta = sc.nextInt();
 				if(respuesta == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
 					System.out.println("Enhorabuena, has acertado");
+					do {
+						System.out.println("¿Que quieres hacer? \n 1. Seguir jugando \n 2. Plantarse");
+						respuesta = sc.nextInt();
+						switch(respuesta) {
+						case 1:
+							System.out.println("Vamos a por la siguiente pregunta");
+							break;
+						case 2:
+							System.out.println("Un placer haber jugado, te llevas " + premios.get(i) + "€");
+							continuar = false;						
+							break;
+						default:
+							System.out.println("Opción no válida");
+							break;
+						}
+					}while(respuesta<1 || respuesta>2);
 				}else {
 					System.out.println("Lo siento, has fallado");
-					acierto=false;
+					if(comodines.size()>0) {
+						System.out.println("Se te ha eliminado un comodín, puedes seguir jugando");
+						comodines.remove((int)(Math.random()*comodines.size()));
+					}else {
+						System.out.println("No te quedan más comodines para salvarte la vida, fin del juego");
+						acierto = false;
+						if(i>9) {
+							System.out.println("Ganas " + premios.get(9) + "€ gracias al seguro");						
+						}else if(i>4) {
+							System.out.println("Ganas " + premios.get(4) + "€ gracias al seguro");	
+						}else {
+							System.out.println("Te vas con las manos vacías, no has podido asegurar nada");
+						}
+					}
+					
 				}	
 			}
 		}while(acierto && continuar);
