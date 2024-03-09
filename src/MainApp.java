@@ -1,16 +1,35 @@
 import java.util.ArrayList;
-
+import java.util.Scanner;
 public class MainApp {
-
+	static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		ArrayList<Pregunta> preguntas = new ArrayList<>();
 		Integer[][] preguntasSeleccionadas = new Integer[15][2];
 		ArrayList<Integer> premios = new ArrayList<>();
+		int respuesta;
+		boolean acierto=true, continuar=true;
 		
 		añadirPreguntasPremios(preguntas, premios);
 		
 		seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
 		
+		do {
+			for(int i=0;i<preguntasSeleccionadas.length;i++) {
+				System.out.println("Pregunta número " + (i+1) + ":");
+				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
+				llamarComodines(preguntasSeleccionadas, i);
+				System.out.println("¿Cuál es su respuesta:");
+				respuesta = sc.nextInt();
+				if(respuesta == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
+					System.out.println("Enhorabuena, has acertado");
+				}else {
+					System.out.println("Lo siento, has fallado");
+					acierto=false;
+				}	
+			}
+		}while(acierto && continuar);
+
 	}
 	
 	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas, ArrayList<Integer> premios) {
@@ -68,6 +87,16 @@ public class MainApp {
 		}while(contador != 15);
 		tipoPreguntas.clear();
 
+	}
+	
+	public static void llamarComodines(Integer[][] preguntasSeleccionadas, int indice) {
+		System.out.println("Comodines Disponibles: ");
+		
+	}
+	public static void usar5050(Integer[][] preguntasSeleccionadas, int indice) {
+		for (int i=0;i<preguntasSeleccionadas.length;i++) {
+			
+		}
 	}
 	
 	public static void añadirPreguntasPremios(ArrayList<Pregunta> preguntas, ArrayList<Integer> premios) {
