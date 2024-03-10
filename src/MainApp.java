@@ -184,7 +184,7 @@ public class MainApp {
 
         opcion = sc.nextInt();
         
-       if (opcion < comodines.size() && opcion>0) {
+       if (opcion <= comodines.size() && opcion>0) {
     	   eleccion = comodines.get(opcion-1);
        }
 
@@ -194,6 +194,7 @@ public class MainApp {
                 eliminarComodin(comodines, "50/50");
                 break;
             case "Cambiar Pregunta":
+            	cambiarPregunta(preguntasSeleccionadas, indice, preguntas);
                 eliminarComodin(comodines, "Cambiar Pregunta");
                 break;
             case "Publico":
@@ -242,11 +243,26 @@ public class MainApp {
     		acum = aux + acum;
     	}
     	
+    	System.out.println(preguntas.get(preguntasSeleccionadas[indice][0]).getPregunta());
 		for(int i = 0; i < preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas().length; i++) {
 			System.out.println("  " + letras[i] + ") " +  preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas()[i]);
 			System.out.println( "   Público: " + porc[i] + "%"	);
 		}
 	
+    }
+    
+    public static void cambiarPregunta(Integer[][] preguntasSeleccionadas, int indice, ArrayList <Pregunta> preguntas) {
+    	int preg =0;
+    	ArrayList <Integer> indices = new ArrayList <Integer>();
+    	
+    	for(int i=0;i<preguntasSeleccionadas.length;i++) {
+    		indices.add(preguntasSeleccionadas[i][0]);
+    	}
+    	do {
+    		preg = (int)(Math.random()*preguntas.size());
+    	}while(indices.contains(preg));
+    	preguntasSeleccionadas[indice][0] = preg;
+    	preguntas.get(preguntasSeleccionadas[indice][0]).imprimirPregunta();
     }
     
     public static void menu(ArrayList<String> comodines, Integer[][] preguntasSeleccionadas) {
