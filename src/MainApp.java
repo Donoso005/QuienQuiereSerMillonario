@@ -11,7 +11,7 @@ public class MainApp {
         ArrayList<Integer> premios = new ArrayList<>();
         ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 
-        int opcion = 0, seleccionComodin, contador;
+        int opcion = 0, seleccionComodin, contador = 0;
         boolean acierto = true, continuar = true;
 
         añadirPreguntasPremios(preguntas, premios);
@@ -19,7 +19,6 @@ public class MainApp {
         menu(comodines, preguntasSeleccionadas);
 
         	do {
-        		contador = preguntasSeleccionadas.length;
         		
         		System.out.print("Pregunta número " + (contador + 1) + ": ");
 
@@ -80,7 +79,7 @@ public class MainApp {
 
                 }
         		contador --;
-        	}while(contador > 0 && acierto && continuar);
+        	}while(contador < preguntasSeleccionadas.length && acierto && continuar);
 
     }
 
