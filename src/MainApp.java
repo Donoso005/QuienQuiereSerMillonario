@@ -10,7 +10,7 @@ public class MainApp {
 		ArrayList<Integer> premios = new ArrayList<>();
 		ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 		
-		int opcion = 0;
+		int opcion = 0, seleccionComodin;
 		String respuesta;
 		boolean acierto=true, continuar=true;
 		
@@ -18,39 +18,25 @@ public class MainApp {
 		añadirPreguntasPremios(preguntas, premios);
 		seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
 		menu(comodines, preguntasSeleccionadas);
-		for(int i=0;i<preguntasSeleccionadas.length;i++) {
-			System.out.println(preguntas.get(preguntasSeleccionadas[i][0]).getPregunta());
-		}
+
 		do {
 			for(int i=0;i<preguntasSeleccionadas.length;i++) {
 				System.out.println("Pregunta número " + (i+1) + ":");
 				
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
-				llamarComodines(preguntasSeleccionadas, i, comodines, preguntas);
 				
 				do {
-					System.out.println("¿Cuál es su respuesta:");
-					respuesta = sc.next();
-					
-					switch(respuesta) {
-						case "A":
-							opcion = 1;
-							break;
-						case "B":
-							opcion = 2;
-							break;
-						case "C":
-							opcion = 3;
-							break;
-						case "D":
-							opcion = 4;
-							break;
+					System.out.println("1. Utilizar Comodines (Disponibles: " + comodines.size() + ")\n2. Responder Pregunta");
+					seleccionComodin = sc.nextInt();
+					switch(seleccionComodin) {
+						case 1:
+							llamarComodines(preguntasSeleccionadas, i, comodines, preguntas);
+						case 2:
+							opcion = responderPregunta();
 						default:
-							System.out.println("[ERROR] Opción incorrecta.");
-							break;
+							System.out.println("[ERROR] Opción incorrecta");
 					}
-					
-				}while(!respuesta.equalsIgnoreCase("A") && !respuesta.equalsIgnoreCase("B") && !respuesta.equalsIgnoreCase("C") && !respuesta.equalsIgnoreCase("D"));
+				}while(seleccionComodin != 1 && seleccionComodin != 2);
 				
 				if(opcion == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
 					System.out.println("Enhorabuena, has acertado");
@@ -91,6 +77,36 @@ public class MainApp {
 			}
 		}while(acierto && continuar);
 
+	}
+	
+	public static int responderPregunta() {
+		String respuesta;
+		int opcion = 0;
+		do {
+			System.out.println("¿Cuál es su respuesta:");
+			respuesta = sc.next();
+			
+			switch(respuesta) {
+				case "A":
+					opcion = 1;
+					break;
+				case "B":
+					opcion = 2;
+					break;
+				case "C":
+					opcion = 3;
+					break;
+				case "D":
+					opcion = 4;
+					break;
+				default:
+					System.out.println("[ERROR] Opción incorrecta.");
+					break;
+			}
+			
+		}while(!respuesta.equalsIgnoreCase("A") && !respuesta.equalsIgnoreCase("B") && !respuesta.equalsIgnoreCase("C") && !respuesta.equalsIgnoreCase("D"));
+		
+		return opcion;
 	}
 	
 	public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas, ArrayList<Integer> premios) {
