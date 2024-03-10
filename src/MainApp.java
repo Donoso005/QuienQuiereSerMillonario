@@ -21,7 +21,7 @@ public class MainApp {
 
 		do {
 			for(int i=0;i<preguntasSeleccionadas.length;i++) {
-				System.out.println("Pregunta número " + (i+1) + ":");
+				System.out.print("Pregunta número " + (i+1) + ": ");
 				
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
 				
@@ -31,10 +31,13 @@ public class MainApp {
 					switch(seleccionComodin) {
 						case 1:
 							llamarComodines(preguntasSeleccionadas, i, comodines, preguntas);
+							break;
 						case 2:
 							opcion = responderPregunta();
+							break;
 						default:
 							System.out.println("[ERROR] Opción incorrecta");
+							break;
 					}
 				}while(seleccionComodin != 1 && seleccionComodin != 2);
 				
