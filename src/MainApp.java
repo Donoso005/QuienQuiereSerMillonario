@@ -26,7 +26,7 @@ public class MainApp {
 				System.out.println("Pregunta número " + (i+1) + ":");
 				
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
-				//llamarComodines(preguntasSeleccionadas, i);
+				llamarComodines(preguntasSeleccionadas, i, comodines, preguntas);
 				
 				do {
 					System.out.println("¿Cuál es su respuesta:");
@@ -150,12 +150,38 @@ public class MainApp {
 
 	}
 	
-	public static void llamarComodines(Integer[][] preguntasSeleccionadas, int indice) {
-		System.out.println("Comodines Disponibles: ");
+	public static void llamarComodines(Integer[][] preguntasSeleccionadas, int indice, ArrayList <String> comodines, ArrayList <Pregunta> preguntas) {
+		String eleccion = "Salir";
+		int opcion=0, i=0;
+	
+		System.out.println("¿Que desea hacer?");
+		for(i=0;i<comodines.size();i++) {
+			System.out.println((i+1)+ ". Usar "+ comodines.get(i));
+		}
+		System.out.println((i+1) + ". Salir");
 		
+		opcion = sc.nextInt();
+		if(opcion < comodines.size()) {
+			eleccion = comodines.get(opcion);
+		}
+		
+		switch(eleccion) {
+		case "50/50":
+			usar5050(preguntasSeleccionadas, indice, preguntas);
+			break;
+		case "Cambiar Pregunta":
+			break;
+		case "Publico":
+			break;
+		case "Salir":
+			break;
+		default:
+			System.out.println("Opción no válida");
+			break;
+		}
 	}
-	public static void usar5050(Integer[][] preguntasSeleccionadas, int indice) {
-		for (int i=0;i<preguntasSeleccionadas.length;i++) {
+	public static void usar5050(Integer[][] preguntasSeleccionadas, int indice, ArrayList <Pregunta> preguntas) {
+		for(int i=0;i<preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas().length ;i++) {
 			
 		}
 	}
