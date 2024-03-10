@@ -87,7 +87,7 @@ public class MainApp {
         int opcion = 0;
         do {
             System.out.println("¿Cuál es su respuesta:");
-            respuesta = sc.next();
+            respuesta = sc.next().toUpperCase();
 
             switch (respuesta) {
                 case "A":
@@ -113,8 +113,7 @@ public class MainApp {
         return opcion;
     }
 
-    public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas,
-            ArrayList<Integer> premios) {
+    public static void seleccionarPreguntas(ArrayList<Pregunta> preguntas, Integer[][] preguntasSeleccionadas, ArrayList<Integer> premios) {
         ArrayList<Integer> tipoPreguntas = new ArrayList<>();
         int contador = 0, numero;
 
