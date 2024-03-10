@@ -78,7 +78,7 @@ public class MainApp {
                     }
 
                 }
-        		contador --;
+        		contador ++;
         	}while(contador < preguntasSeleccionadas.length && acierto && continuar);
 
     }
