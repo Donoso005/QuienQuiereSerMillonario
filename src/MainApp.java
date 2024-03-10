@@ -194,6 +194,7 @@ public class MainApp {
                 eliminarComodin(comodines, "Cambiar Pregunta");
                 break;
             case 3:
+            	usarPublico(preguntasSeleccionadas, indice, preguntas);
                 eliminarComodin(comodines, "Publico");
                 break;
             case 4:
@@ -227,6 +228,24 @@ public class MainApp {
 		preguntas.get(preguntasSeleccionadas[indice][0]).imprimirPregunta();		
 	}
 
+    public static void usarPublico(Integer[][] preguntasSeleccionadas, int indice, ArrayList <Pregunta> preguntas) {
+    	char[] letras = {'A', 'B', 'C', 'D'};
+    	Integer[] porc  =  new Integer[4];
+    	int acum = 0, aux=0;
+    	
+    	for(int i =0;i<porc.length;i++) {
+    		aux = (int)(Math.random()*(101 - acum));
+    		porc[i] = aux;
+    		acum = aux + acum;
+    	}
+    	
+		for(int i = 0; i < preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas().length; i++) {
+			System.out.println("  " + letras[i] + ") " +  preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas()[i]);
+			System.out.println( "   Público: " + porc[i] + "%"	);
+		}
+	
+    }
+    
     public static void menu(ArrayList<String> comodines, Integer[][] preguntasSeleccionadas) {
         String nombre, comenzar;
         Integer edad;
