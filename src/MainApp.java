@@ -11,18 +11,19 @@ public class MainApp {
         ArrayList<Integer> premios = new ArrayList<>();
         ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 
-        int opcion = 0, seleccionComodin;
+        int opcion = 0, seleccionComodin, contador;
         boolean acierto = true, continuar = true;
 
         añadirPreguntasPremios(preguntas, premios);
         seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
         menu(comodines, preguntasSeleccionadas);
 
-        do {
-            for (int i = 0; i < preguntasSeleccionadas.length; i++) {
-                System.out.print("Pregunta número " + (i + 1) + ": ");
+        	do {
+        		contador = preguntasSeleccionadas.length;
+        		
+        		System.out.print("Pregunta número " + (contador + 1) + ": ");
 
-                preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
+                preguntas.get(preguntasSeleccionadas[contador][0]).imprimirPregunta();
 
                 do {
                     System.out.println("1. Utilizar Comodines (Disponibles: " + comodines.size()
@@ -30,7 +31,7 @@ public class MainApp {
                     seleccionComodin = sc.nextInt();
                     switch (seleccionComodin) {
                         case 1:
-                            llamarComodines(preguntasSeleccionadas, i, comodines, preguntas);
+                            llamarComodines(preguntasSeleccionadas, contador, comodines, preguntas);
                             opcion = responderPregunta();
                             break;
                         case 2:
@@ -42,7 +43,7 @@ public class MainApp {
                     }
                 } while (seleccionComodin != 1 && seleccionComodin != 2);
 
-                if (opcion == preguntas.get(preguntasSeleccionadas[i][0]).getCorrecta()) {
+                if (opcion == preguntas.get(preguntasSeleccionadas[contador][0]).getCorrecta()) {
                     System.out.println("Enhorabuena, has acertado");
                     do {
                         System.out.println("¿Que quieres hacer? \n 1. Seguir jugando \n 2. Plantarse");
@@ -52,7 +53,7 @@ public class MainApp {
                                 System.out.println("Vamos a por la siguiente pregunta");
                                 break;
                             case 2:
-                                System.out.println("Un placer haber jugado, te llevas " + premios.get(i) + "€");
+                                System.out.println("Un placer haber jugado, te llevas " + premios.get(contador) + "€");
                                 continuar = false;
                                 break;
                             default:
@@ -68,9 +69,9 @@ public class MainApp {
                     } else {
                         System.out.println("No te quedan más comodines para salvarte la vida, fin del juego");
                         acierto = false;
-                        if (i > 9) {
+                        if (contador > 9) {
                             System.out.println("Ganas " + premios.get(9) + "€ gracias al seguro");
-                        } else if (i > 4) {
+                        } else if (contador > 4) {
                             System.out.println("Ganas " + premios.get(4) + "€ gracias al seguro");
                         } else {
                             System.out.println("Te vas con las manos vacías, no has podido asegurar nada");
@@ -78,8 +79,8 @@ public class MainApp {
                     }
 
                 }
-            }
-        } while (acierto && continuar);
+        		contador --;
+        	}while(contador > 0 && acierto && continuar);
 
     }
 
