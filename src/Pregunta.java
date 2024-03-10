@@ -48,7 +48,7 @@ public class Pregunta {
 		System.out.println(pregunta);
 		char[] letras = {'A', 'B', 'C', 'D'};
 		for(int i = 0; i < respuestas.length; i++) {
-			System.out.println(letras[i] + ") " + respuestas[i]);
+			System.out.println("  " + letras[i] + ") " + respuestas[i]);
 		}
 	}
 	
