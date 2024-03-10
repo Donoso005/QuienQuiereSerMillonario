@@ -26,7 +26,7 @@ public class MainApp {
 				preguntas.get(preguntasSeleccionadas[i][0]).imprimirPregunta();
 				
 				do {
-					System.out.println("1. Utilizar Comodines (Disponibles: " + comodines.size() + ")\n2. Responder Pregunta");
+					System.out.println("1. Utilizar Comodines (Disponibles: " + comodines.size() + ")\n2. Responder Pregunta\nSeleccione una opción:");
 					seleccionComodin = sc.nextInt();
 					switch(seleccionComodin) {
 						case 1:
