@@ -61,7 +61,7 @@ public class MainApp {
                         }
                     } while (opcion < 1 || opcion > 2);
                 } else {
-                    System.out.println("Lo siento, has fallado");
+                    System.out.println("Lo siento, has fallado, la respuesta correcta es la : " + preguntas.get(preguntasSeleccionadas[contador][0]).getCorrecta() + 1);
                     if (comodines.size() > 0) {
                         System.out.println("Se te ha eliminado un comodín, puedes seguir jugando");
                         comodines.remove((int) (Math.random() * comodines.size()));
@@ -78,7 +78,7 @@ public class MainApp {
                     }
 
                 }
-        		contador ++;
+        		contador++;
         	}while(contador < preguntasSeleccionadas.length && acierto && continuar);
 
     }
