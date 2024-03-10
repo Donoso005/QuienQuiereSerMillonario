@@ -31,6 +31,7 @@ public class MainApp {
 					switch(seleccionComodin) {
 						case 1:
 							llamarComodines(preguntasSeleccionadas, i, comodines, preguntas);
+							opcion = responderPregunta();
 							break;
 						case 2:
 							opcion = responderPregunta();
@@ -209,10 +210,20 @@ public class MainApp {
 		}
 	}
 	
+	//Si la respuesta es distinta a la correcta, la deja vacía y suma el contador
 	public static void usar5050(Integer[][] preguntasSeleccionadas, int indice, ArrayList <Pregunta> preguntas) {
+		int cont = 0;
+		String respReducidas[] = new String [4];
+		
+		respReducidas = preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas();
 		for(int i=0;i<preguntas.get(preguntasSeleccionadas[indice][0]).getRespuestas().length ;i++) {
-			
+			if((i+1) != preguntas.get(preguntasSeleccionadas[indice][0]).getCorrecta() && cont<2) {
+				respReducidas[i] = "";
+				cont++;
+			}
 		}
+		preguntas.get(preguntasSeleccionadas[indice][0]).setRespuestas(respReducidas);
+		preguntas.get(preguntasSeleccionadas[indice][0]).imprimirPregunta();		
 	}
 	
 	public static void menu(ArrayList<String> comodines, Integer[][] preguntasSeleccionadas) {
