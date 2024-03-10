@@ -11,7 +11,6 @@ public class MainApp {
 		ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 		
 		int opcion = 0, seleccionComodin;
-		String respuesta;
 		boolean acierto=true, continuar=true;
 		
 		
