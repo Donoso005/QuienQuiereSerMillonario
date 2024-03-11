@@ -11,8 +11,9 @@ public class MainApp {
         ArrayList<Integer> premios = new ArrayList<>();
         ArrayList<String> comodines = new ArrayList<>(Arrays.asList("50/50", "Cambiar Pregunta", "Publico"));
 
-        int opcion = 0, seleccionComodin, contador = 0;
+        int opcion = 0, seleccionComodin, contador = 0, pregunta;
         boolean acierto = true, continuar = true;
+        char pregunta2 = 'A';
 
         añadirPreguntasPremios(preguntas, premios);
         seleccionarPreguntas(preguntas, preguntasSeleccionadas, premios);
@@ -61,7 +62,20 @@ public class MainApp {
                         }
                     } while (contador<preguntasSeleccionadas.length && (opcion < 1 || opcion > 2));
                 } else {
-                    System.out.println("Lo siento, has fallado, la respuesta correcta es la : " + preguntas.get(preguntasSeleccionadas[contador][0]).getCorrecta());
+                	pregunta = preguntas.get(preguntasSeleccionadas[contador][0]).getCorrecta();
+                	switch(pregunta) {
+                		case 1:
+                			pregunta2 = 'A';
+                			break;
+                		case 2:
+                			pregunta2 = 'B';
+                		case 3:
+                			pregunta2 = 'C';
+                		case 4:
+                			pregunta2 = 'D';
+                	}
+                	
+                    System.out.println("Lo siento, has fallado, la respuesta correcta es la : " + pregunta2);
                     if (comodines.size() > 0) {
                         System.out.println("Se te ha eliminado un comodín, puedes seguir jugando");
                         comodines.remove((int) (Math.random() * comodines.size()));
