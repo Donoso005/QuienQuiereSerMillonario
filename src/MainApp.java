@@ -59,7 +59,7 @@ public class MainApp {
                                 System.out.println("Opción no válida");
                                 break;
                         }
-                    } while (opcion < 1 || opcion > 2);
+                    } while (contador<preguntasSeleccionadas.length && (opcion < 1 || opcion > 2));
                 } else {
                     System.out.println("Lo siento, has fallado, la respuesta correcta es la : " + preguntas.get(preguntasSeleccionadas[contador][0]).getCorrecta() + 1);
                     if (comodines.size() > 0) {
@@ -80,7 +80,7 @@ public class MainApp {
                 }
         		contador++;
         	}while(contador < preguntasSeleccionadas.length && acierto && continuar);
-        	if (contador == preguntasSeleccionadas.length + 1 && acierto) {
+        	if (contador == preguntasSeleccionadas.length && acierto) {
         		System.out.println("Enhorabuena, has ganado el 1.000.000 de EUROS!!!!!!");
         	}
 
