@@ -80,6 +80,9 @@ public class MainApp {
                 }
         		contador++;
         	}while(contador < preguntasSeleccionadas.length && acierto && continuar);
+        	if (contador == preguntasSeleccionadas.length + 1 && acierto) {
+        		System.out.println("Enhorabuena, has ganado el 1.000.000 de EUROS!!!!!!");
+        	}
 
     }
 
